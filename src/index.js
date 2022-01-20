@@ -26,10 +26,13 @@ const menuReducer = (state = [], action) => {
 */
 const checkoutReducer = (state = [], action) => {
     switch (action.type) {
-        default:
-            return state;
+        case 'ADD_CUSTOMER':
+            return [...state, action.payload];
+        default: 
+            return state; 
     }
 }
+
 // CUSTOMER INFO REDUCER
 // - Screen two
 //      - name, address, city, zip

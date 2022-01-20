@@ -75,13 +75,15 @@ function CustomerForm() {
                         />
                     <button 
                         type="radio"
+                        name="type"
                         value={false}
                         >Pickup</button>
                     <button 
                         type="radio"
+                        name="type"
                         value={true}
                         >Delivery</button>
-                    <button type="submit">Next</button>
+                    <button type="submit" onClick={(evt) => onAddCustomer}>Next</button>
                 </form>
             </section>
         </>
