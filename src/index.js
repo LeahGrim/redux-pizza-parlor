@@ -23,11 +23,11 @@ const menuReducer = (state = [], action) => {
 // - This is part of state that tracks current users order
 /*
     {
-        pizzas: pizzas
+        pizzas: pizzas [{pizza: name, cost: cost}]
         total: total
     }
 */
-const checkoutReducer = (state = [], action) => {
+const checkoutReducer = (state = { pizzas: [{pizza: 'pepperoni', cost: '13.99'}, {pizza: 'cheese', cost: '12.99'}], total: '26.98' }, action) => {
     switch (action.type) {
         default:
             return state;
