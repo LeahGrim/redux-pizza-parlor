@@ -6,13 +6,6 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
-ReactDOM.render(
-    <Provider>
-        <App />
-    </Provider>,
-    document.getElementById('root'));
-
-
 
 // MENU REDUCERS
 // - List of pizzas available for order
@@ -72,3 +65,19 @@ const customerInfoReducer = (state = [], action) => {
 //             return state;
 //     }
 // }
+
+const store = createStore(
+    combineReducers({
+        menuReducer,
+        checkoutReducer,
+        customerInfoReducer
+    }),
+    applyMiddleware(logger),
+);
+
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('root'));
+
