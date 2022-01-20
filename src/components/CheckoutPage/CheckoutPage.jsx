@@ -1,9 +1,12 @@
 import axios from 'axios';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import CustomerInfo from './CustomerInfo/CustomerInfo';
 import CheckoutTable from './CheckoutTable/CheckoutTable';
 
 function CheckoutPage() {
+
+    // Set up dispatch
+    const dispatch = useDispatch();
 
     // Pull customer info and order info from store
     const customerInfo = useSelector(store => store.customerInfoReducer);
@@ -34,7 +37,14 @@ function CheckoutPage() {
         axios.post('/api/order', finalOrder )
         .then( res => {
             console.log('POST /api/order success', res.data);
-            // TODO: getPizzas function
+            // Dispatch to clear checkoutReducer and customerInfoReducer
+            dispatch({
+                type: 'RESET_CHECKOUT'
+              })
+            dispatch({
+                type: 'RESET_INFO'
+            })
+            // TODO: navigate back to home page
         })
         .catch( err => {
             console.error('POST /api/order failed', err);
@@ -45,7 +55,8 @@ function CheckoutPage() {
     return (
         <>
         <h2>Step 3: Checkout</h2>
-        <CustomerInfo />
+        <CustomerInfo customerInfo={customerInfo}/>
+        <br/>
         <CheckoutTable order={order}/>
         <button onClick={onCheckout}>CHECKOUT</button>
         </>
