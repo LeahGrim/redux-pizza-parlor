@@ -18,8 +18,27 @@ function CheckoutPage() {
         if (!confirm) {
             return;
         }
-        // Make axios request
-        
+        // Create object to POST
+        let finalOrder = {
+            customer_name: customerInfo.name,
+            street_address: customerInfo.address,
+            city: customerInfo.city,
+            zip: customerInfo.zip,
+            type: customerInfo.type,
+            total: order.total,
+            pizzas: order.pizzas
+        }
+        console.log('Object to add: ', finalOrder);
+
+        // Make axios POST request if confirmed
+        axios.post('/api/order', finalOrder )
+        .then( res => {
+            console.log('POST /api/order success', res.data);
+            // TODO: getPizzas function
+        })
+        .catch( err => {
+            console.error('POST /api/order failed', err);
+        })
 
     }
 

@@ -1,6 +1,15 @@
 function CustomerInfo() {
+    
+
+
     return (
-        <p>customer info here</p>
+        <table>
+            <tbody>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+            </tbody>
+        </table>
     )
 }
 

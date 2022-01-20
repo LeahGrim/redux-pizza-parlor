@@ -23,11 +23,11 @@ const menuReducer = (state = [], action) => {
 // - This is part of state that tracks current users order
 /*
     {
-        pizzas: pizzas [{pizza: name, cost: cost}]
+        pizzas: pizzas [{id: id, pizza: name, cost: cost, quantity: 1}]
         total: total
     }
 */
-const checkoutReducer = (state = { pizzas: [{pizza: 'pepperoni', cost: '13.99'}, {pizza: 'cheese', cost: '12.99'}], total: '26.98' }, action) => {
+const checkoutReducer = (state = { pizzas: [{id: 1, pizza: 'pepperoni', cost: '13.99', quantity: 1}, {id: 2, pizza: 'cheese', cost: '12.99', quantity: 1}], total: '26.98' }, action) => {
     switch (action.type) {
         default:
             return state;
@@ -36,10 +36,10 @@ const checkoutReducer = (state = { pizzas: [{pizza: 'pepperoni', cost: '13.99'},
 // CUSTOMER INFO REDUCER
 // - Screen two
 //      - name, address, city, zip
-//      { name: name, address: address, city: city, zip: zip }
+//      { name: name, address: address, city: city, zip: zip, delivery: true/false }
 //      - delivery or pickup
 
-const customerInfoReducer = (state = [], action) => {
+const customerInfoReducer = (state = {name: 'Chris', address: '1234 Prime Dr', city: 'Minneapolis', zip: '55410', type: 'delivery' }, action) => {
     switch (action.type) {
         default:
             return state;
