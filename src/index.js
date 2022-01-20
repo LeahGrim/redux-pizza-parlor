@@ -9,13 +9,6 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
-ReactDOM.render(
-    <Provider>
-        <App />
-    </Provider>,
-    document.getElementById('root'));
-
-
 
 const menuReducer = (state = [], action) => {
     switch (action.type) {
@@ -80,11 +73,27 @@ const customerInfoReducer = (state = [], action) => {
 //     }
 // }
 
+<<<<<<< HEAD
 const storeInstance = createStore(
+=======
+const store = createStore(
+>>>>>>> 7cddf87e1b6c9fea75ba33d36f10a878eed651dd
     combineReducers({
         menuReducer,
         checkoutReducer,
         customerInfoReducer
     }),
+<<<<<<< HEAD
     applyMiddleware(logger)
 );
+=======
+    applyMiddleware(logger),
+);
+
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('root'));
+
+>>>>>>> 7cddf87e1b6c9fea75ba33d36f10a878eed651dd
