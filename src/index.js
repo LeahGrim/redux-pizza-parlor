@@ -2,22 +2,28 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import logger from 'redux-logger';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+    <Provider>
+        <App />
+    </Provider>,
+    document.getElementById('root'));
 
-//create a reducer for order
-//when you click add, the components added should be visible in cart
-//CART
 
-//create a reducer for pizza list
-// when we load the order page, we will say render a menu
-//MENU - PIZZA LIST
-//create a reducer for customer info (see screen two)
-//takes customer info and
 
 // MENU REDUCERS
 // - List of pizzas available for order
 // - This is rendered on screen one
+
+const menuReducer = (state = [], action) => {
+    switch (action.type) {
+        default:
+            return state;
+    }
+}
 
 // CART/ORDER REDUCER
 // - What current user/orderer has in their cart
@@ -28,14 +34,24 @@ ReactDOM.render(<App />, document.getElementById('root'));
         total: total
     }
 */
-
-
+const checkoutReducer = (state = [], action) => {
+    switch (action.type) {
+        default:
+            return state;
+    }
+}
 // CUSTOMER INFO REDUCER
 // - Screen two
 //      - name, address, city, zip
 //      { name: name, address: address, city: city, zip: zip }
 //      - delivery or pickup
 
+const customerInfoReducer = (state = [], action) => {
+    switch (action.type) {
+        default:
+            return state;
+    }
+}
 /*
 // ADMIN/ACTIVE ORDERS
 // - Pull from the cart reducer and customer info reducer to 
@@ -48,5 +64,11 @@ ReactDOM.render(<App />, document.getElementById('root'));
     pizzas: pizzas,
     total: total    
     }
-
 */
+
+// const adminReducer = (state = [], action) => {
+//     switch (action.type) {
+//         default:
+//             return state;
+//     }
+// }
