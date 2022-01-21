@@ -48,9 +48,12 @@ const checkoutReducer = (state = { pizzas: [{ id: 1, pizza: 'pepperoni', cost: '
 //      - delivery or pickup
 
 const customerInfoReducer = (state = {name: 'Chris', address: '1234 Prime Dr', city: 'Minneapolis, MN', zip: '55410', type: 'delivery' }, action) => {
+    console.log(state, action);
     switch (action.type) {
         case 'RESET_INFO':
             return { name: '', address: '', city: '', zip: '', type: '' };
+        case 'ADD_CUSTOMER':
+            return ({name: action.payload.name, address: action.payload.address, city: action.payload.city, zip: action.payload.zip, type: action.payload.type})
         default:
             return state;
     }
