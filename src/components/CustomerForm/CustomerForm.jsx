@@ -9,27 +9,33 @@ function CustomerForm() {
     const [customerAddress, setCustomerAddress] = useState('');
     const [customerCity, setCustomerCity] = useState('');
     const [customerZip, setCustomerZip] = useState('');
-    const [orderType, setOrderType] = useState(false);
-    const [customerToAdd, setCustomer] = useState({
-        name:   customerName,
-        address: customerAddress,
-        city:   customerCity,
-        zip:    customerZip,
-        type:   orderType
-    });
+    const [orderType, setOrderType] = useState(true);
+    // const [customerToAdd, setCustomer] = useState({
+    //     name:   customerName,
+    //     address: customerAddress,
+    //     city:   customerCity,
+    //     zip:    customerZip,
+    //     type:   orderType
+    // });
     const dispatch = useDispatch();
 
     const onAddCustomer = (evt) => {
         evt.preventDefault();
         console.log('Adding customer', customerName);
-        // let customerToAdd = {
-
-        // }
-        setCustomer(evt)
+        // setCustomer(evt);
+        // console.log('Adding customer', customerToAdd);
         dispatch({
             type:   'ADD_CUSTOMER',
-            payload:   customerToAdd
+            payload:   {
+                name:   customerName,
+                address: customerAddress,
+                city:   customerCity,
+                zip:    customerZip,
+                type:   orderType
+
+            }
         })
+        // clearCustomerForm();
     // upon form submit, redirect to /checkout
     }
 
@@ -38,45 +44,54 @@ function CustomerForm() {
         setCustomerAddress('');
         setCustomerCity('');
         setCustomerZip('');
-        orderType(false);
+        setOrderType(false);
     }
 
     return (
         <>
             <section>
                 <h2>Customer Information</h2>
-                <form onSubmit={(evt) => onAddCustomer}>
+                <form 
+                    className="customer-form" 
+                    onSubmit={(evt) => onAddCustomer(evt)}>
                     <input 
                         type="text"
+                        className="form-control"
+                        id="customer-name"
                         placeholder="Name" 
-                        value={customerName}
                         onChange={evt => setCustomerName(evt.target.value)}
+                        value={customerName}
                         required 
                         />
                     <input 
                         type="text"
+                        className="form-control"
+                        id="customer-address"
                         placeholder="Street Address" 
-                        value={customerAddress}
                         onChange={evt => setCustomerAddress(evt.target.value)}
+                        value={customerAddress}
                         required 
                         />
                     <input 
                         type="text"
+                        className="form-control"
+                        id="customer-city"
                         placeholder="City" 
-                        value={customerCity}
                         onChange={evt => setCustomerCity(evt.target.value)}
                         required 
                         />
                     <input  
                         type="text"
+                        className="form-control"
+                        id="customer-zip"
                         placeholder="Zip" 
-                        value={customerZip}
                         onChange={evt => setCustomerZip(evt.target.value)}
                         required 
                         />
                     <div>
                         <input 
                             type="radio"
+                            className="form-control"
                             name="type"
                             value={false}
                             onChange={(evt) => 
@@ -86,6 +101,7 @@ function CustomerForm() {
                             />Pickup 
                         <input 
                             type="radio"
+                            className="form-control"
                             name="type"
                             value={true}
                             onChange={(evt) => 
