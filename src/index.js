@@ -15,32 +15,59 @@ const menuReducer = (state = [], action) => {
 
 }
 
+<<<<<<< HEAD
+=======
+const menuReducer = (state = [], action) => {
+    switch (action.type) {
+        case 'SET_MENU_LIST':
+        return action.payload
+       
+        default:
+        return state;
+    }
+}
+
+>>>>>>> master
 // CART/ORDER REDUCER
 // - What current user/orderer has in their cart
 // - This is part of state that tracks current users order
 /*
     {
-        pizzas: pizzas
+        pizzas: pizzas [{id: id, pizza: name, cost: cost, quantity: 1}]
         total: total
     }
 */
-const checkoutReducer = (state = [], action) => {
+//we think this should be an empty object because 
+// we will be send an object with arrays in it 
+const checkoutReducer = (state = { pizzas: [{ id: 1, pizza: 'pepperoni', cost: '12.99', quantity: 1 }], total : '12.99'}, action) => {
     switch (action.type) {
+<<<<<<< HEAD
         default: 
             return state; 
+=======
+        case 'RESET_CHECKOUT': 
+            return { pizzas: [], total: 0 };
+        default:
+            return state;
+>>>>>>> master
     }
 }
 
 // CUSTOMER INFO REDUCER
 // - Screen two
 //      - name, address, city, zip
-//      { name: name, address: address, city: city, zip: zip }
+//      { name: name, address: address, city: city, zip: zip, delivery: true/false }
 //      - delivery or pickup
 
-const customerInfoReducer = (state = [], action) => {
+const customerInfoReducer = (state = {name: 'Chris', address: '1234 Prime Dr', city: 'Minneapolis, MN', zip: '55410', type: 'delivery' }, action) => {
     switch (action.type) {
+<<<<<<< HEAD
         case 'ADD_CUSTOMER':
             return [...state, action.payload];
+=======
+        case 'RESET_INFO':
+            return { name: '', address: '', city: '', zip: '', type: '' };
+>>>>>>> master
         default:
             return state;
     }
