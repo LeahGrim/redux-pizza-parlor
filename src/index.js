@@ -24,18 +24,18 @@ const menuReducer = (state = [], action) => {
 // - This is part of state that tracks current users order
 /*
     {
-        pizzas: pizzas [{id: id, pizza: name, cost: cost, quantity: 1}]
+        pizzas: [{id: id, pizza: name, cost: cost, quantity: 1}]
         total: total
     }
 */
 //we think this should be an empty object because 
 // we will be send an object with arrays in it 
-const checkoutReducer = (state = { pizzas: [{ id: 1, pizza: 'pepperoni', cost: '12.99', quantity: 1 }], total : '12.99'}, action) => {
+const checkoutReducer = (state = { pizzas: [], total : '0'}, action) => {
     switch (action.type) {
         case 'RESET_CHECKOUT': 
             return { pizzas: [], total: 0 };
         case 'ADD_PIZZA_TO_CHECKOUT' :
-            return { pizzas: [{ id: 1, pizza: 'pepperoni', cost: '12.99', quantity: 1 }], total : '12.99'}
+            return action.payload;
         default:
             return state;
     }
