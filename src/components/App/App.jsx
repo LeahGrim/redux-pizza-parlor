@@ -46,7 +46,7 @@ function refreshMenu(){
       <img src='images/pizza_photo.png' />
       <p>Pizza is great.</p>
     <Router>
-      <Route exact path="/order">
+      <Route exact path="/">
         <OrderPizzaMenu/>
       </Route>
       <Route exact path="/customerinfo">
