@@ -45,7 +45,7 @@ function CustomerForm() {
         <>
             <section>
                 <h2>Customer Information</h2>
-                <form>
+                <form onSubmit={(evt) => onAddCustomer}>
                     <input 
                         type="text"
                         placeholder="Name" 
@@ -94,7 +94,7 @@ function CustomerForm() {
                             }
                             />Delivery 
                     </div>
-                    <button type="submit" onClick={(evt) => onAddCustomer}>Next</button>
+                    <button type="submit" >Next</button>
                 </form>
             </section>
         </>
