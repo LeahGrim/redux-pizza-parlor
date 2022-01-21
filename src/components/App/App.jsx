@@ -46,8 +46,14 @@ function refreshMenu(){
       <img src='images/pizza_photo.png' />
       <p>Pizza is great.</p>
     <Router>
+      <Route exact path="/order">
+        <OrderPizzaMenu/>
+      </Route>
       <Route exact path="/customerinfo">
         <CustomerForm />
+      </Route>
+      <Route exact path="/checkout">
+        <CheckoutPage/>
       </Route>
    </Router> 
     </div>
