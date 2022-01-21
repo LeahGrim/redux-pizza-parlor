@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import './App.css';
+import CheckoutPage from '../CheckoutPage/CheckoutPage';
+
 import OrderPizzaMenu from '../OrderPizzaMenu/OrderPizzaMenu.jsx';
 function App() {
 
@@ -41,6 +43,8 @@ function refreshMenu(){
   
       <img src='images/pizza_photo.png' />
       <p>Pizza is great.</p>
+  
+    <CheckoutPage />
       <OrderPizzaMenu refreshMenu= {refreshMenu}/>
     </div>
   );
