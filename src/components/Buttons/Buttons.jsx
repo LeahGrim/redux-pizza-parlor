@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-function Buttons(){
+function Buttons({pizza}){
     // call dispatch to add the data to the store (checkoutreducer)
     //is it name or pizza.name? 
                                              // are these all the things we are sending?
@@ -11,7 +11,11 @@ function Buttons(){
 
     const addPizzaToCheckout = (event)=> {
         event.preventDefault()
-        //TODO 
+        //TODO dispatch here 
+        dispatch ({
+            type: 'SET_MENU_LIST',
+            payload: pizza.name, 
+        })
     }
 
     return(
