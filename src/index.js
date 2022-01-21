@@ -13,8 +13,11 @@ import logger from 'redux-logger';
 
 const menuReducer = (state = [], action) => {
     switch (action.type) {
+        case 'SET_MENU_LIST':
+        return action.payload
+       
         default:
-            return state;
+        return state;
     }
 }
 
@@ -27,7 +30,9 @@ const menuReducer = (state = [], action) => {
         total: total
     }
 */
-const checkoutReducer = (state = { pizzas: [{id: 1, pizza: 'pepperoni', cost: '13.99', quantity: 1}, {id: 2, pizza: 'cheese', cost: '12.99', quantity: 1}], total: '26.98' }, action) => {
+                        //we think this should be an empty object because 
+                        // we will be send an object with arrays in it 
+const checkoutReducer = (state = [], action) => {
     switch (action.type) {
         case 'RESET_CHECKOUT': 
             return { pizzas: [], total: 0 };
