@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
+import { HashRouter as Router, Route, Link} from 'react-router-dom';
 import './App.css';
 import CheckoutPage from '../CheckoutPage/CheckoutPage';
+import CustomerForm from '../CustomerForm/CustomerForm';
 
 import OrderPizzaMenu from '../OrderPizzaMenu/OrderPizzaMenu.jsx';
 function App() {
@@ -43,9 +45,11 @@ function refreshMenu(){
   
       <img src='images/pizza_photo.png' />
       <p>Pizza is great.</p>
-  
-    <CheckoutPage />
-      <OrderPizzaMenu refreshMenu= {refreshMenu}/>
+    <Router>
+      <Route exact path="/customerinfo">
+        <CustomerForm />
+      </Route>
+   </Router> 
     </div>
   );
 }
