@@ -13,8 +13,11 @@ import logger from 'redux-logger';
 
 const menuReducer = (state = [], action) => {
     switch (action.type) {
+        case 'SET_MENU_LIST':
+        return action.payload
+       
         default:
-            return state;
+        return state;
     }
 }
 
@@ -27,6 +30,8 @@ const menuReducer = (state = [], action) => {
         total: total
     }
 */
+                        //we think this should be an empty object because 
+                        // we will be send an object with arrays in it 
 const checkoutReducer = (state = [], action) => {
     switch (action.type) {
         default:
