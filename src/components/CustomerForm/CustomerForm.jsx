@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import './CustomerForm.css';
 
 function CustomerForm() {
 
@@ -73,16 +74,26 @@ function CustomerForm() {
                         onChange={evt => setCustomerZip(evt.target.value)}
                         required 
                         />
-                    <button 
-                        type="radio"
-                        name="type"
-                        value={false}
-                        >Pickup</button>
-                    <button 
-                        type="radio"
-                        name="type"
-                        value={true}
-                        >Delivery</button>
+                    <div>
+                        <input 
+                            type="radio"
+                            name="type"
+                            value={false}
+                            onChange={(evt) => 
+                                setOrderType(false),
+                                console.log(orderType)
+                            }
+                            />Pickup 
+                        <input 
+                            type="radio"
+                            name="type"
+                            value={true}
+                            onChange={(evt) => 
+                                setOrderType(true),
+                                console.log(orderType)
+                            }
+                            />Delivery 
+                    </div>
                     <button type="submit" onClick={(evt) => onAddCustomer}>Next</button>
                 </form>
             </section>

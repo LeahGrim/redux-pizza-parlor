@@ -26,8 +26,6 @@ const menuReducer = (state = [], action) => {
 */
 const checkoutReducer = (state = [], action) => {
     switch (action.type) {
-        case 'ADD_CUSTOMER':
-            return [...state, action.payload];
         default: 
             return state; 
     }
@@ -41,6 +39,8 @@ const checkoutReducer = (state = [], action) => {
 
 const customerInfoReducer = (state = [], action) => {
     switch (action.type) {
+        case 'ADD_CUSTOMER':
+            return [...state, action.payload];
         default:
             return state;
     }
