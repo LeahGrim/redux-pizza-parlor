@@ -15,9 +15,7 @@ function PizzaListItem({pizza, refreshMenu}){
                 <img src={pizza.image_path} width={100} height={100}/>
                 <h2> {pizza.price}</h2>
                 
-               
-            
-            <Buttons/>
+            <Buttons pizza= {pizza}/>
             </div>
             </>
     )

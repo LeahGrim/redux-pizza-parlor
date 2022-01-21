@@ -17,6 +17,8 @@ const menuReducer = (state = [], action) => {
     }
 }
 
+//
+
 // CART/ORDER REDUCER
 // - What current user/orderer has in their cart
 // - This is part of state that tracks current users order
@@ -32,6 +34,8 @@ const checkoutReducer = (state = { pizzas: [{ id: 1, pizza: 'pepperoni', cost: '
     switch (action.type) {
         case 'RESET_CHECKOUT': 
             return { pizzas: [], total: 0 };
+        case 'ADD_PIZZA_TO_CHECKOUT' :
+            return { pizzas: [{ id: 1, pizza: 'pepperoni', cost: '12.99', quantity: 1 }], total : '12.99'}
         default:
             return state;
     }
