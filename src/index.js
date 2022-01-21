@@ -1,15 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './components/App/App';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import './index.css';
 import logger from 'redux-logger';
+import App from './components/App/App';
 
-
-// MENU REDUCERS
-// - List of pizzas available for order
-// - This is rendered on screen one
 
 const menuReducer = (state = [], action) => {
     switch (action.type) {
@@ -40,6 +36,7 @@ const checkoutReducer = (state = { pizzas: [{ id: 1, pizza: 'pepperoni', cost: '
             return state;
     }
 }
+
 // CUSTOMER INFO REDUCER
 // - Screen two
 //      - name, address, city, zip
