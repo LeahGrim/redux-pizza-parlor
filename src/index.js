@@ -6,13 +6,6 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
-ReactDOM.render(
-    <Provider>
-        <App />
-    </Provider>,
-    document.getElementById('root'));
-
-
 
 // MENU REDUCERS
 // - List of pizzas available for order
@@ -20,8 +13,11 @@ ReactDOM.render(
 
 const menuReducer = (state = [], action) => {
     switch (action.type) {
+        case 'SET_MENU_LIST':
+        return action.payload
+       
         default:
-            return state;
+        return state;
     }
 }
 
@@ -34,6 +30,8 @@ const menuReducer = (state = [], action) => {
         total: total
     }
 */
+                        //we think this should be an empty object because 
+                        // we will be send an object with arrays in it 
 const checkoutReducer = (state = [], action) => {
     switch (action.type) {
         default:
@@ -72,3 +70,19 @@ const customerInfoReducer = (state = [], action) => {
 //             return state;
 //     }
 // }
+
+const store = createStore(
+    combineReducers({
+        menuReducer,
+        checkoutReducer,
+        customerInfoReducer
+    }),
+    applyMiddleware(logger),
+);
+
+ReactDOM.render(
+    <Provider store= {store}>
+        <App />
+    </Provider>,
+    document.getElementById('root'));
+
