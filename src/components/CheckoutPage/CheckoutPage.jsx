@@ -2,11 +2,15 @@ import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import CustomerInfo from './CustomerInfo/CustomerInfo';
 import CheckoutTable from './CheckoutTable/CheckoutTable';
+import { useHistory } from 'react-router-dom';
 
 function CheckoutPage() {
 
     // Set up dispatch
     const dispatch = useDispatch();
+
+    // Set up history
+    const history = useHistory();
 
     // Pull customer info and order info from store
     const customerInfo = useSelector(store => store.customerInfoReducer);
@@ -44,7 +48,9 @@ function CheckoutPage() {
             dispatch({
                 type: 'RESET_INFO'
             })
-            // TODO: navigate back to home page
+            // Navigate back to order page
+            history.push('/');
+
         })
         .catch( err => {
             console.error('POST /api/order failed', err);
