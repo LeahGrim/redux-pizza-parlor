@@ -29,9 +29,9 @@ function refreshMenu(){
     dispatch ({
       type: 'SET_MENU_LIST',
       payload: res.data
-    }).catch(error => {
-      console.log('something funky happened on the GET request on App.jsx', error)
     })
+  }).catch(error => {
+    console.log('something funky happened on the GET request on App.jsx', error)
   })
 }
 

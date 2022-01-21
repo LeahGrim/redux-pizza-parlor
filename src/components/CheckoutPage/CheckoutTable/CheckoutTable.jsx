@@ -14,7 +14,7 @@ function CheckoutTable({order}) {
             <tbody>
                 {
                     pizzas.map(pizza => (
-                        <tr key={pizza.name}>
+                        <tr key={pizza.id}>
                             <td>{pizza.pizza}</td>
                             <td>{pizza.cost}</td>
                         </tr>
